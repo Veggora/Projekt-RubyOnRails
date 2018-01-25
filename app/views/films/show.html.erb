@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nazwa: </strong>
+  <%= @film.name %>
+</p>
+
+<p>
+  <strong>Kategoria: </strong>
+  <%= @film.category.name %>
+</p>
+
+<p>
+  <strong>Opis: </strong>
+  <%= @film.body %>
+</p>
+
+<button type="button" class="btn btn-danger"><%= link_to 'Edit', edit_film_path(@film) %> </button>
+<button type="button" class="btn btn-danger"><%= link_to 'Back', films_path %></button>

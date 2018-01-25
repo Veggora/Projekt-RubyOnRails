@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Filmy</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nazwa</th>
+	  <th>Kategoria</th>
+	  <th>Opis</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @films.each do |film| %>
+      <tr>
+        <td><%= film.name %></td>
+		<td><%= film.category.name if film.category %></td>
+        <td><%= film.body %></td>
+        <td><button type="button" class="btn btn-danger"> <%= link_to 'Wyświetl', film %> </button></td>
+        <td><button type="button" class="btn btn-danger"> <%= link_to 'Edytuj', edit_film_path(film) %> </button></td>
+        <td><button type="button" class="btn btn-danger"> <%= link_to 'Usuń', film, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć film?' } %> </button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<button type="button" class="btn btn-danger"> <%= link_to 'Dodaj Film', new_film_path %> </button>
+
